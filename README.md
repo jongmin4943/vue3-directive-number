@@ -56,6 +56,13 @@ Required: `false`<br>
 
 Automatically add comma separators
 
+### Options
+
+```typescript
+min?: number; // Default -10000000000000000000
+max?: number; // Default 10000000000000000000
+```
+
 # License
 
 <a href="https://github.com/jongmin4943/vue3-directive-number/blob/master/LICENSE">MIT</a> License

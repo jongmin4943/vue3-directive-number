@@ -36,7 +36,6 @@ class VueNumber {
         }
       },
 
-      // 이벤트 해제
       beforeUnmount: (el: HTMLElement) => {
         const addedListeners = listeners.get(el);
         if (addedListeners) {
