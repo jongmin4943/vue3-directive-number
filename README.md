@@ -58,4 +58,4 @@ Automatically add comma separators
 
 # License
 
-<a href="https://github.com/jongmin4943/vue3-directive-number/blob/main/LICENSE">MIT</a> License
+<a href="https://github.com/jongmin4943/vue3-directive-number/blob/master/LICENSE">MIT</a> License
