@@ -31,7 +31,7 @@ createApp(App).use(VueNumber).mount("#app");
 <script setup lang="ts">
   const option = {
     min: 0,
-    max: 100,
+    max: 10000,
   };
 </script>
 ```
