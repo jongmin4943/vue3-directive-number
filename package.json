@@ -1,6 +1,6 @@
 {
   "name": "vue3-directive-number",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vue3 number directive supports IME for inputs including other Ui frameworks's input Element",
   "main": "index.js",
   "types": "index.d.ts",

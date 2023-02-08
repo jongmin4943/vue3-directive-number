@@ -24,15 +24,18 @@ class VueNumber {
         prevCommaCount.set(el, 0);
         el.addEventListener("keydown", keyListener);
         el.addEventListener("input", inputListener);
-        if (el.tagName !== "INPUT") {
+        if (["INPUT", "TEXTAREA"].includes(el.tagName)) {
+          el.addEventListener("blur", blurListener);
+        } else {
           const inputElement = el.getElementsByTagName("input").item(0);
+          const textAreaElement = el.getElementsByTagName("textarea").item(0);
           if (inputElement) {
             inputElement.addEventListener("blur", blurListener);
+          } else if (textAreaElement) {
+            textAreaElement.addEventListener("blur", blurListener);
           } else {
             throw "v-number must apply to input type of tag";
           }
-        } else {
-          el.addEventListener("blur", blurListener);
         }
       },
 
@@ -41,11 +44,13 @@ class VueNumber {
         if (addedListeners) {
           el.removeEventListener("keydown", addedListeners.key);
           el.removeEventListener("input", addedListeners.input);
-          if (el.tagName !== "INPUT") {
-            const inputElement = el.getElementsByTagName("input").item(0);
-            inputElement?.removeEventListener("blur", addedListeners.blur);
-          } else {
+          if (["INPUT", "TEXTAREA"].includes(el.tagName)) {
             el.removeEventListener("blur", addedListeners.blur);
+          } else {
+            const inputElement = el.getElementsByTagName("input").item(0);
+            const textAreaElement = el.getElementsByTagName("textarea").item(0);
+            inputElement?.removeEventListener("blur", addedListeners.blur);
+            textAreaElement?.removeEventListener("blur", addedListeners.blur);
           }
         }
       },
